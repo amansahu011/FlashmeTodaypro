@@ -31,7 +31,7 @@ public class AdminService {
         Optional<UserModel> optionalUser = userrepo.findById(id);
         if (optionalUser.isPresent()) {
             UserModel user = optionalUser.get();
-            user.setStatus("Reviewed");  // Fix typo here if needed
+            user.setBookingStatus("Reviewed");  // Fix typo here if needed
             userrepo.save(user);
             return true;
         }
