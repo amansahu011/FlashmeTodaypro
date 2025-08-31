@@ -1,24 +1,30 @@
 package com.takeuforward;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import io.github.cdimascio.dotenv.Dotenv;
 
+@SpringBootApplication
+public class TakeUForwardprojectssssdevApplication {
 
-        @SpringBootApplication
-        public class TakeUForwardprojectssssdevApplication {
+    public static void main(String[] args) {
+        // Try to load .env file but ignore if missing
+        Dotenv dotenv = Dotenv.configure()
+                              .ignoreIfMissing()
+                              .load();
 
-            public static void main(String[] args) {
-                // Load .env file
-                Dotenv dotenv = Dotenv.load();
+        // Prefer system environment variables (Render) if available
+        System.setProperty("MONGO_URI", getenvOrDotenv("MONGO_URI", dotenv));
+        System.setProperty("MAIL_HOST", getenvOrDotenv("MAIL_HOST", dotenv));
+        System.setProperty("MAIL_PORT", getenvOrDotenv("MAIL_PORT", dotenv));
+        System.setProperty("MAIL_USERNAME", getenvOrDotenv("MAIL_USERNAME", dotenv));
+        System.setProperty("MAIL_PASSWORD", getenvOrDotenv("MAIL_PASSWORD", dotenv));
 
-                // Set system properties so Spring can use them
-                System.setProperty("MONGO_URI", dotenv.get("MONGO_URI"));
-                System.setProperty("MAIL_HOST", dotenv.get("MAIL_HOST"));
-                System.setProperty("MAIL_PORT", dotenv.get("MAIL_PORT"));
-                System.setProperty("MAIL_USERNAME", dotenv.get("MAIL_USERNAME"));
-                System.setProperty("MAIL_PASSWORD", dotenv.get("MAIL_PASSWORD"));
+        SpringApplication.run(TakeUForwardprojectssssdevApplication.class, args);
+    }
 
-                SpringApplication.run(TakeUForwardprojectssssdevApplication.class, args);
-            }
-        }
+    private static String getenvOrDotenv(String key, Dotenv dotenv) {
+        String value = System.getenv(key);  // Render Env vars
+        return (value != null) ? value : dotenv.get(key);
+    }
+}
