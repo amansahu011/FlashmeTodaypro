@@ -62,7 +62,7 @@ public void sendUserDetailsToOwner(UserModel user) {
     content.append("Status: ").append(user.getBookingStatus()).append("\n");
 
     SimpleMailMessage message = new SimpleMailMessage();
-    message.setTo("sahuaman399@gmail.com");  // owner email
+    message.setTo("Sales.flashmetoday@gmail.com");  // owner email
     message.setSubject("New User Form Submission");
     message.setText(content.toString());
 
