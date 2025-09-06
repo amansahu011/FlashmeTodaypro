@@ -19,11 +19,12 @@ public class ContactFormController {
     @Autowired
     private ContactFormService service;
 
+    
  // ✅ Create (Submit form)
     @PostMapping("/submit")
-    public ResponseEntity<Void> submitForm(@Valid @RequestBody ContactForm form) {
+    public ResponseEntity<String> submitForm(@Valid @RequestBody ContactForm form) {
         service.saveForm(form);  // save in DB
-        return ResponseEntity.ok().build();  // no message, just 200 OK
+        return ResponseEntity.ok("Submit Successfully ✅");
     }
 
 
