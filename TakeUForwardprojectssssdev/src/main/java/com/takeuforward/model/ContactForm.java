@@ -63,19 +63,21 @@ public class ContactForm {
         this.mobile = mobile;
     }
 
-    public String getSubject() {
-        return subject;
-    }
+	public String getConcern() {
+		return concern;
+	}
 
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
+	public void setConcern(String concern) {
+		this.concern = concern;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getMessage() {
+		return message;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+    
 }
