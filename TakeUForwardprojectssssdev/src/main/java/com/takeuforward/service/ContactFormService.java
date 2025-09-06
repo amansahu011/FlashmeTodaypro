@@ -33,8 +33,8 @@ public class ContactFormService {
         		+ "\nName: " + form.getName() +
                 "\nEmail: " + form.getEmail() +
                 "\nMobile: " + form.getMobile() +
-                "\nSubject: " + form.getSubject() +
-                "\nDescription: " + form.getDescription();
+                "\nSubject: " + form.getConcern() +
+                "\nDescription: " + form.getMessage();
 
         emailService.sendMail(subject, body);
 
@@ -54,8 +54,8 @@ public class ContactFormService {
             form.setName(updatedForm.getName());
             form.setEmail(updatedForm.getEmail());
             form.setMobile(updatedForm.getMobile());
-            form.setSubject(updatedForm.getSubject());
-            form.setDescription(updatedForm.getDescription());
+            form.setConcern(updatedForm.getConcern());
+            form.setMessage(updatedForm.getMessage());
             return repository.save(form);
         }).orElseThrow(() -> new RuntimeException("Form not found"));
     }
