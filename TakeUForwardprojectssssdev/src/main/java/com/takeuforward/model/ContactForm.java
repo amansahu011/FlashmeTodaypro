@@ -24,11 +24,11 @@ public class ContactForm {
     	)
     	private String mobile;
 
-    @NotBlank(message = "Subject is required")
-    private String subject;
+    @NotBlank(message = "concern is required")
+    private String concern;
 
-    @NotBlank(message = "Description is required")
-    private String description;
+    @NotBlank(message = "message is required")
+    private String message;
 
     // Getters & Setters
     public String getId() {
