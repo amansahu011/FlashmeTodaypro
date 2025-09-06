@@ -18,8 +18,11 @@ public class ContactForm {
     @NotBlank(message = "Email is required")
     private String email;
 
-    @Pattern(regexp = "^[0-9]{10}$", message = "Mobile must be a 10-digit number")
-    private String mobile;
+    @Pattern(
+    	    regexp = "^(?:0|91)?[0-9]{10}$",
+    	    message = "Mobile must be a valid 10-digit number (with optional 0 or 91 prefix)"
+    	)
+    	private String mobile;
 
     @NotBlank(message = "Subject is required")
     private String subject;
