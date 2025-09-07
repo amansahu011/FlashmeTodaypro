@@ -118,9 +118,11 @@ public class UserModel {
     @Email(message = "Email should be valid")
     private String email;
 
-    @Pattern(regexp = "^[0-9]{10}$", message = "Mobile must be 10 digits")
-    private String mobile;
-
+    @Pattern(
+    	    regexp = "^(?:0|91)?[0-9]{10}$",
+    	    message = "Mobile must be a valid 10-digit number (with optional 0 or 91 prefix)"
+    	)
+    	private String mobile;
     
     @NotBlank(message = "City is required")
     private String city;
