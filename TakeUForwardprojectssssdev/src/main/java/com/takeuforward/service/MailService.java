@@ -49,17 +49,35 @@ public class MailService {
 //    }
 //}
 //
+//
+//public void sendUserDetailsToOwner(UserModel user) {
+//    StringBuilder content = new StringBuilder();
+//    content.append("A new user has submitted the form.\nHere are the details:\n\n");
+//    content.append("id: ").append(user.getId()).append("\n");
+//    content.append("Name: ").append(user.getName()).append("\n");
+//    content.append("Email: ").append(user.getEmail()).append("\n");
+//    content.append("Phone: ").append(user.getMobile()).append("\n");
+//    content.append("City: ").append(user.getCity()).append("\n");
+//   content.append("TimeofShoot: ").append(user.getTimeOfShoot()).append("\n");
+//    content.append("Status: ").append(user.getBookingStatus()).append("\n");
+    public void sendUserDetailsToOwner(UserModel user) {
+        StringBuilder content = new StringBuilder();
+        content.append("A new user has submitted the form.\nHere are the details:\n\n");
+        content.append("ID: ").append(user.getId()).append("\n");
+        content.append("Name: ").append(user.getName()).append("\n");
+        content.append("Email: ").append(user.getEmail()).append("\n");
+        content.append("Phone: ").append(user.getMobile()).append("\n");
+        content.append("City: ").append(user.getCity()).append("\n");
+        content.append("Location: ").append(user.getLocation()).append("\n");
+        content.append("Time of Shoot: ").append(user.getTimeOfShoot()).append("\n");
+        content.append("Plan: ").append(user.getPlan()).append("\n");
+        content.append("Type of Shoot: ").append(user.getTypeOfShoot()).append("\n");
+        content.append("Booking Status: ").append(user.getBookingStatus()).append("\n");
 
-public void sendUserDetailsToOwner(UserModel user) {
-    StringBuilder content = new StringBuilder();
-    content.append("A new user has submitted the form.\nHere are the details:\n\n");
-    content.append("id: ").append(user.getId()).append("\n");
-    content.append("Name: ").append(user.getName()).append("\n");
-    content.append("Email: ").append(user.getEmail()).append("\n");
-    content.append("Phone: ").append(user.getMobile()).append("\n");
-    //content.append("City: ").append(user.getCity()).append("\n");
-   // content.append("TimeofShoot: ").append(user.getTimeOfShoot()).append("\n");
-    content.append("Status: ").append(user.getBookingStatus()).append("\n");
+        // Yahan se email bhejne ka code
+        // emailService.sendMail("New Booking Submitted", content.toString());
+    
+
 
     SimpleMailMessage message = new SimpleMailMessage();
     message.setTo("Sales.flashmetoday@gmail.com");  // owner email
